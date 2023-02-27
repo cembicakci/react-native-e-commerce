@@ -2,11 +2,10 @@ import { StyleSheet, View, Image, FlatList, Dimensions, Text, ScrollView, Pressa
 
 import products from "../data/products"
 
-const ProductDetailScreen = () => {
+const ProductDetailScreen = ({ route }) => {
 
-    const product = products[0]
-    console.log(product)
-
+    const product = route.params
+    
     const addToCart = () => {
         // console.warn('Add to cart!')
     }
