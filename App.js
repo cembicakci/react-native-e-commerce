@@ -5,15 +5,20 @@ import ProductDetailScreen from './src/screens/ProductDetailScreen';
 import ProductScreen from './src/screens/ProductScreen';
 import ShoppingCart from './src/screens/ShoppingCart';
 
+import { Provider } from 'react-redux'
+import { store } from './src/redux/store';
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <ProductScreen /> */}
-      {/* <ProductDetailScreen /> */}
-      {/* <ShoppingCart /> */}
-      <Navigation />
-      <StatusBar style='auto' />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        {/* <ProductScreen /> */}
+        {/* <ProductDetailScreen /> */}
+        {/* <ShoppingCart /> */}
+        <Navigation />
+        <StatusBar style='auto' />
+      </View>
+    </Provider>
   );
 }
 
