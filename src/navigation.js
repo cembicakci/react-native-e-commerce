@@ -9,9 +9,15 @@ import ShoppingCart from './screens/ShoppingCart';
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
+import { useSelector } from 'react-redux'
+import { selectedCartItem } from './redux/cartSlice';
+
+
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
+
+    const cartLength = useSelector(selectedCartItem)
 
     return (
         <NavigationContainer>
@@ -31,7 +37,7 @@ function Navigation() {
                                 onPress={() => { navigation.navigate('ShoppingCart') }}
                             >
                                 <FontAwesome5 name={'shopping-cart'} size={16} color={'gray'} />
-                                <Text style={{ marginLeft: 5, fontWeight: '500' }}>1</Text>
+                                <Text style={{ marginLeft: 5, fontWeight: '500' }}>{cartLength}</Text>
                             </TouchableOpacity>
                         )
                     })}

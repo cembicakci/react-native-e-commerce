@@ -1,13 +1,17 @@
 import { StyleSheet, View, Image, FlatList, Dimensions, Text, ScrollView, Pressable, TouchableOpacity } from "react-native"
-
-import products from "../data/products"
+import { useSelector, useDispatch } from 'react-redux'
+import { addCartItem } from "../redux/cartSlice"
 
 const ProductDetailScreen = ({ route }) => {
 
     const product = route.params
-    
+
+    const dispatch = useDispatch()
+
+    const items = useSelector(state => state.cart.items)
+
     const addToCart = () => {
-        // console.warn('Add to cart!')
+        dispatch(addCartItem({ product }))
     }
 
     return (
